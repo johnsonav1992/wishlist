@@ -10,10 +10,19 @@ import { WishItem } from '../shared/models/wishItem';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  items = [
-    new WishItem("To Learn Angular")
-    , new WishItem("To Get Get at Coding", true)
-    , new WishItem("Find Grass that Cuts Itself")
+  items: WishItem[] = [
+    {
+      text: 'Learn Angular',
+      isComplete: false
+    },
+    {
+      text: 'Learn TypeScript',
+      isComplete: true
+    },
+    {
+      text: 'Find Grass that Cuts Itself',
+      isComplete: false
+    }
   ];
   title = 'wishlist';
 }

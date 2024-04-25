@@ -1,0 +1,13 @@
+<div class="container">
+  <ul class="wish-list">
+    @for (item of items; track item.text) {
+        <li>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" class="checkbox"> {{ item.text }}
+            </label>
+          </div>
+        </li>
+      }
+  </ul>
+</div>
