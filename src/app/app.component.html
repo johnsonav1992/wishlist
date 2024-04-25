@@ -7,11 +7,17 @@
 
   @else {
     <ul class="wish-list">
-      @for (item of items; track item.text) {
+      @for (item of items; track item.id) {
           <li>
             <div class="form-check">
               <label class="form-check-label">
-                <input type="checkbox" class="checkbox"> {{ item.text }}
+                <input 
+                  type="checkbox" 
+                  class="checkbox" 
+                  [checked]="item.isComplete"
+                  (click)="toggleItem(item)"
+                > 
+                {{ item.text }}
               </label>
             </div>
           </li>
