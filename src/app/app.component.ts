@@ -1,14 +1,20 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { WishItem } from '../shared/models/wishItem';
 import { FormsModule } from '@angular/forms';
 import { FilterOptions } from '../shared/types/types';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
+import { InputFormComponent } from './components/input-form/input-form.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, WishlistComponent],
+  imports: [
+    RouterOutlet
+    , FormsModule
+    , WishlistComponent
+    , InputFormComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -41,17 +47,6 @@ export class AppComponent {
     }
   }
 
-  title = 'wishlist';
-  newWishText = '';
   listFilter: FilterOptions = 'all';
 
-  addNewWish () {
-    this.items.push({
-      id: this.items.length + 1,
-      text: this.newWishText,
-      isComplete: false
-    });
-
-    this.newWishText = ''
-  }
 }
