@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { FilterOptions } from '../shared/types/types';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { InputFormComponent } from './components/input-form/input-form.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ import { InputFormComponent } from './components/input-form/input-form.component
     , FormsModule
     , WishlistComponent
     , InputFormComponent
+    , FilterComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -37,6 +39,8 @@ export class AppComponent {
     }
   ];
 
+  filter = 'all';
+
   get visibleItems() {
     let value = this.listFilter;
 
@@ -46,7 +50,5 @@ export class AppComponent {
       case 'unfulfilled': return this.items.filter(item => !item.isComplete);
     }
   }
-
-  listFilter: FilterOptions = 'all';
 
 }
