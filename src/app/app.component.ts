@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { WishItem } from '../shared/models/wishItem';
 import { FormsModule } from '@angular/forms';
 import { FilterOptions } from '../shared/types/types';
+import { WishlistComponent } from './components/wishlist/wishlist.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule],
+  imports: [RouterOutlet, FormsModule, WishlistComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -52,9 +53,5 @@ export class AppComponent {
     });
 
     this.newWishText = ''
-  }
-
-  toggleItem (item: WishItem) {
-    item.isComplete = !item.isComplete;
   }
 }

@@ -29,28 +29,6 @@
     </div>
   </div>
   <div class="row mt-3">
-    @if (!visibleItems.length) {
-      <div>
-        There are no wishes!
-      </div>
-    } @else {
-      <ul class="wish-list">
-        @for (item of visibleItems; track item.id) {
-            <li>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input 
-                    type="checkbox" 
-                    class="checkbox" 
-                    [checked]="item.isComplete"
-                    (click)="toggleItem(item)"
-                  > 
-                  {{ item.text }}
-                </label>
-              </div>
-            </li>
-          }
-      </ul>
-    }
+    <wishlist [items]="visibleItems" />
   </div>
 </div>
