@@ -11,22 +11,12 @@ import { WishItem } from '../../../shared/models/wishItem';
   styleUrl: './filter.component.css'
 })
 export class FilterComponent {
-  @Output() filterWishes = new EventEmitter<string>();
+  @Output() filterWishes = new EventEmitter<FilterOptions>();
   @Input() items: WishItem[] = [];
 
   listFilter: FilterOptions = 'all';
 
   changeFilter(value: FilterOptions) {
-    let selection;
-
-    switch(value) {
-      case 'all': selection = this.items;
-        break;
-      case 'fulfilled': selection = this.items.filter(item => item.isComplete);
-        break;
-      case 'unfulfilled': selection = this.items.filter(item => !item.isComplete);
-    }
-
-    this.filterWishes.emit(selection)
+    this.filterWishes.emit(value)
   }
 }

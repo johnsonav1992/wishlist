@@ -45,6 +45,7 @@ export class AppComponent {
     let value = this.listFilter;
 
     switch(value) {
+      default:
       case 'all': return this.items;
       case 'fulfilled': return this.items.filter(item => item.isComplete);
       case 'unfulfilled': return this.items.filter(item => !item.isComplete);
