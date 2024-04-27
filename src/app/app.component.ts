@@ -39,7 +39,7 @@ export class AppComponent {
     }
   ];
 
-  filter = '';
+  filter?: FilterOptions;
 
   get visibleItems() {
     let value = this.filter;

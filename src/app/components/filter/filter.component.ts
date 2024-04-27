@@ -11,16 +11,19 @@ import { WishItem } from '../../../shared/models/wishItem';
   styleUrl: './filter.component.css'
 })
 export class FilterComponent implements OnInit {
-  @Output() filterWishes = new EventEmitter<FilterOptions>();
+  @Input() filter?: FilterOptions;
+  @Output() filterChange = new EventEmitter<FilterOptions>();
+
   @Input() items: WishItem[] = [];
 
   listFilter: FilterOptions = 'all';
 
   ngOnInit(): void {
-    this.filterWishes.emit('all')
+    this.updateFilter('all')
   }
 
-  changeFilter(value: FilterOptions) {
-    this.filterWishes.emit(value)
+  updateFilter(value: FilterOptions) {
+    this.filter = value;
+    this.filterChange.emit(value);
   }
 }

@@ -1,7 +1,7 @@
 <div class="container">
   <input-form (addWish)="items.push($event)" />
   <div class="row mt-3">
-    <filter (filterWishes)="filter = $event" [items]="visibleItems" />
+    <filter [(filter)]="filter" [items]="visibleItems" />
   </div>
   <div class="row mt-3">
     <wishlist [items]="visibleItems" />
