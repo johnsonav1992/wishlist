@@ -42,7 +42,7 @@ export class AppComponent {
   filter = 'all';
 
   get visibleItems() {
-    let value = this.listFilter;
+    let value = this.filter;
 
     switch(value) {
       default:
