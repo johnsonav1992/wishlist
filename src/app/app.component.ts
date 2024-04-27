@@ -39,7 +39,7 @@ export class AppComponent {
     }
   ];
 
-  filter = 'all';
+  filter = '';
 
   get visibleItems() {
     let value = this.filter;
