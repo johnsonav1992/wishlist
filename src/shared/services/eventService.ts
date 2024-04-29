@@ -21,5 +21,3 @@ export class EventService {
         })
     }
 }
-
-export const events = new EventService();
