@@ -6,6 +6,7 @@ import { FilterOptions } from '../shared/types/types';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { InputFormComponent } from './components/input-form/input-form.component';
 import { FilterComponent } from './components/filter/filter.component';
+import { events } from '../shared/services/eventService';
 
 @Component({
   selector: 'app-root',
@@ -40,6 +41,12 @@ export class AppComponent {
   ];
 
   filter?: FilterOptions;
+
+  constructor() {
+    events.listen('removeWish', (wishId: number) => {
+      this.items = this.items.filter(item => item.id !== wishId);
+    })
+  }
 
   get visibleItems() {
     let value = this.filter;
