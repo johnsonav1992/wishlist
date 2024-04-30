@@ -24,7 +24,7 @@ import { WishService } from '../shared/services/wish.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  items?: WishItem[];
+  items: WishItem[] = [];
 
   filter?: FilterOptions;
 
@@ -35,8 +35,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.wishService.getWishes().subscribe(wishes => {
-      this.items = wishes
+    this.wishService.getWishes().subscribe({
+      next: wishes => this.items = wishes
+      , error: err => {}
     })
   }
 
