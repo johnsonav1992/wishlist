@@ -1,0 +1,11 @@
+<div class="container">
+    <input-form (addWish)="items?.push($event)" />
+    <div class="row mt-3">
+        <filter [(filter)]="filter" [items]="visibleItems || []" />
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-4">
+            <wishlist [items]="visibleItems || []" />
+        </div>
+    </div>
+</div>
