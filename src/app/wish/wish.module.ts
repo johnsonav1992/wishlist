@@ -21,10 +21,7 @@ import { WishComponent } from './wish/wish.component';
     , WishComponent
   ]
   , exports: [
-    WishlistComponent
-    , InputFormComponent
-    , FilterComponent
-    , WishComponent
+    WishComponent
   ]
 })
 export class WishModule { }
