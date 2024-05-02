@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FilterOptions } from '../../../shared/types/types';
-import { WishItem } from '../../../shared/models/wishItem';
+import { WishItem } from '../../wish/models/wishItem';
 
 @Component({
   selector: 'filter',
