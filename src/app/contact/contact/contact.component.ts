@@ -1,21 +1,22 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
 export class ContactComponent {
-  senderNameControl = new FormControl('')
-  senderEmailControl = new FormControl('')
-  senderMessageControl = new FormControl('')
+  contactForm = new FormGroup({
+    senderName: new FormControl('', Validators.required),
+    senderEmail: new FormControl('', [Validators.required, Validators.email]),
+    senderMessage: new FormControl('', [Validators.required, Validators.minLength(10)])
+  })
 
   submitForm() {
-    if (this.senderNameControl.dirty) {
-      console.log(this.senderNameControl.value)
-    }
+    console.log(this.contactForm.errors);
   }
 }
