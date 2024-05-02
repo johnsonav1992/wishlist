@@ -21,6 +21,9 @@
             <small class="text-danger" *ngIf="contactForm.get('senderEmail')?.hasError('email')">
                 Invalid Email
             </small>
+            <small class="text-danger" *ngIf="contactForm.get('senderEmail')?.hasError('invalidEmailDomain')">
+                Invalid Email Domain
+            </small>
         </div>
     </div>
     <div class="mb-3">

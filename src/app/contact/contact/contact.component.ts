@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { invalidEmailDomain } from './validators';
 
 @Component({
   selector: 'app-contact',
@@ -12,7 +13,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class ContactComponent {
   contactForm = new FormGroup({
     senderName: new FormControl('', Validators.required),
-    senderEmail: new FormControl('', [Validators.required, Validators.email]),
+    senderEmail: new FormControl('', [Validators.required, Validators.email, invalidEmailDomain]),
     senderMessage: new FormControl('', [Validators.required, Validators.minLength(10)])
   })
 
